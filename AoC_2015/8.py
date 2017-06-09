@@ -1,24 +1,19 @@
+rawChars = 0
 codeChars = 0
-stringChars = 0
+metaChars = 0
 
-print()
-
-def a(s):
+def createMeta(s):
 	retval = 2
 	for i in s:
-		retval += 1
-		if i=="\\" or i=="\"":
+		retval+=1
+		if i == "\"" or i == "\\":
 			retval+=1
-		try:
-			e = ord(i)
-			print(i, e)
-			retval += 3
-		except ValueError:
-			pass
-	return retval
+	return retval		 
+
+for E in open("8.txt").readlines():
+	rawChars += len(E[:-1])
+	codeChars += len(eval(E))
+	metaChars += createMeta(E[:-1])
 	
-for each in open("8.txt").readlines():
-	codeChars += a(each)
-	stringChars += len(each)
-	
-print("Part 1: " + str(codeChars-stringChars))
+print("Part 1: " + str(rawChars - codeChars))
+print("Part 1: " + str(metaChars - rawChars))
