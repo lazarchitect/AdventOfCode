@@ -76,4 +76,4 @@ def checkRoom(roomstring): #recursive. needs floor case and delve case
 checkRoom(startstring)
 
 print("Part 1: " + shortestPath()[len(startstring):])
-print("Part 2: " + longestPath()[len(startstring):])
+print("Part 2: " + str(len(longestPath()[len(startstring):])))

@@ -30,7 +30,8 @@ for each in open("2.txt").readlines():
 			if c == "R" and grid[loc[0]][loc[1]+1]!=-1: loc[1] += 1
 			if c == "D" and grid[loc[0]+1][loc[1]]!=-1: loc[0] += 1
 		except IndexError:
-			print(grid[loc[0]][loc[1]], c)
+			# print(grid[loc[0]][loc[1]], c)
+			pass
 	x = grid[loc[0]][loc[1]]
 	if  (x==10): result2+="A"
 	elif(x==11): result2+="B"
