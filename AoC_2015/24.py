@@ -42,14 +42,16 @@ def findThreeGroups():
 
     #at this point all groups should be semi balanced
 
-    while not evenlyBalanced():
-        temp = max(largestGroup)
-        smallGroup.append(temp)
-        largestGroup.remove(temp)
+    if evenlyBalanced():
+        return (smallGroup, middleGroup, largestGroup)
 
-        smallGroup, middleGroup, largestGroup = relabel(smallGroup, middleGroup, largestGroup)
-        printout()
+    largeDiff = weight(largestGroup) - weight(smallGroup)
 
+    if largeDiff in largestGroup:
+        #move it to smallest, return
+        pass
+
+    middleDiff = weight
 
 
 findThreeGroups()
