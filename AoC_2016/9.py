@@ -11,12 +11,31 @@ EOF?
 
 """
 
+length = 0
+
 with open("9.txt", "r") as f:
     text = f.read()
-    for i in text:
-        
-        if i.isalpha():
-            total += 1
+    i = 0
+    while True:
 
-        elif i == "(":
-            instructions = 
+        if i >= 10586:
+            break
+        
+        if text[i].isalpha():
+            length += 1
+            i+=1
+
+        elif text[i] == "(":
+            instructions = text[i+1: text.find(")", i)]
+            chars= int(instructions[0:instructions.find("x")])
+            reps = int(instructions[instructions.find("x")+1:])
+            
+            toAdd = chars * reps
+
+            length += toAdd
+            
+            sequenceEndIndex = text.find(")", i) + 1 + toAdd
+
+            i = sequenceEndIndex
+
+print(length)
